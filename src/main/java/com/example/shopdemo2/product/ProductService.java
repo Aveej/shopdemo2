@@ -44,4 +44,9 @@ public class ProductService {
     public List<Product> getProductByCategory(String category){
         return productRepo.findProductByCategory(category);
     }
+
+    public List<Product> getProductByPriceBetween(Long start, Long end){
+        return productRepo.findProductByPriceBetween(start, end);
+    }
+
 }

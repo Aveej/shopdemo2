@@ -105,6 +105,7 @@ public class Controller {
         productService.save(product);
         return product;
     }
+
     // for delete
     @DeleteMapping("/proddelete/{prodid}")
     private void deleteProduct(@PathVariable("prodid") int id)
@@ -122,4 +123,13 @@ public class Controller {
     public List<Product> getProductByCategory(@PathVariable String category){
         return productService.getProductByCategory(category);
     }
+
+
+    //    call two values in single api
+    @GetMapping("/productbyprice")
+    public List<Product> getProductByPriceBetween(@RequestParam Long start, @RequestParam Long end){
+        return productService.getProductByPriceBetween(start, end);
+    }
+
 }
+
