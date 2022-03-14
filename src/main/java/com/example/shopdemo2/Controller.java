@@ -125,7 +125,7 @@ public class Controller {
     }
 
 
-    //    call two values in single api
+//    filter product by price range between 500 to 1000
     @GetMapping("/productbyprice")
     public List<Product> getProductByPriceBetween(@RequestParam Long start, @RequestParam Long end){
         return productService.getProductByPriceBetween(start, end);
