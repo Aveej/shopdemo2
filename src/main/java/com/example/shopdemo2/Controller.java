@@ -124,12 +124,33 @@ public class Controller {
         return productService.getProductByCategory(category);
     }
 
-
-//    filter product by price range between 500 to 1000
+    //    filter product by price ran
+    //    ge between 500 to 1000
     @GetMapping("/productbyprice")
-    public List<Product> getProductByPriceBetween(@RequestParam Long start, @RequestParam Long end){
-        return productService.getProductByPriceBetween(start, end);
+    public List<Product> getProductByPriceBetween(@RequestParam Long min, @RequestParam Long max){
+        return productService.getProductByPriceBetween(min, max);
     }
+
+    // filter product by category and price(single api)
+
+    @GetMapping("/productbycategoryorprice")
+    public List<Product> getProductByCategyOrPrice(@RequestParam String category, @RequestParam Long price){
+        return productService.getProductByCategoryAndPrice(category, price);
+    }
+
+//    @RequestMapping("/productbycategoryorprice1")
+//    public List<Product> getProductByCategyAndPrice1(@RequestParam String category)
+//    List<Product> getProductByCategyAndPrice1(@RequestParam Long min, @RequestParam Long max){
+//        return productService.getProductByCategoryAndPrice1(category, min, max);
+
+//    }
+
+    @GetMapping("/productbypricerange")
+    public List<Product> getProductByCategoryAndPriceBetween(@RequestParam String category, @RequestParam Long min, @RequestParam Long max){
+        return productService.getProductByCategoryAndPriceBetween(category, min, max);
+    }
+
+
 
 }
 

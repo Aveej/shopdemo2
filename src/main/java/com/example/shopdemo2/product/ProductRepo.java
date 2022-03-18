@@ -17,6 +17,12 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     List<Product> findProductByCategory(String category);
 
-    List<Product> findProductByPriceBetween(Long start, Long end);
+    @Query("from Product where price between :min and :max")
+    List<Product> findProductByPriceBetween(Long min, Long max);
+
+    List<Product> findProductByCategoryAndPrice(String category, Long price);
+
+//    @Query("from Product where category And price between :min and :max")
+    List<Product> findProductByCategoryAndPriceBetween(String category, Long min, Long max);
 
 }

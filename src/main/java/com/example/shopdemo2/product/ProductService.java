@@ -45,8 +45,17 @@ public class ProductService {
         return productRepo.findProductByCategory(category);
     }
 
-    public List<Product> getProductByPriceBetween(Long start, Long end){
-        return productRepo.findProductByPriceBetween(start, end);
+
+    public List<Product> getProductByPriceBetween(Long min, Long max){
+        return productRepo.findProductByPriceBetween(min, max);
     }
 
+    public List<Product> getProductByCategoryAndPrice(String category, Long price){
+        return productRepo.findProductByCategoryAndPrice(category, price);
+    }
+
+    public List<Product> getProductByCategoryAndPriceBetween(String category, Long min, Long max){
+        return productRepo.findProductByCategoryAndPriceBetween(category, min, max);
+    }
 }
+
